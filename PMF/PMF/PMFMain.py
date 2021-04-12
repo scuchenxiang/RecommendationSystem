@@ -24,5 +24,5 @@ if __name__=="__main__":
 
     print('start train')
     model = PMF(matR=trainMatR, lambdaU=args.lambdaU, lambdaV=args.lambdaV,
-                latentSize=args.latentSize, momentSize=args.momentSize, lr=args.lr, epoch=args.epoch, seed=1)
+                latentSize=args.latentSize, momentSize=args.momentSize, lr=args.lr,ratio=args.ratio,epoch=args.epoch, seed=1)
     U, V, trainLossList = model.train(trainData=trainMatR,testData=testMatR)

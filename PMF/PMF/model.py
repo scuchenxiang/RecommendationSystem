@@ -10,6 +10,7 @@ class PMF():
         self.momentSize = kwargs['momentSize']
         self.lr = kwargs['lr']
         self.epoch = kwargs['epoch']
+        self.ratio=kwargs['ratio']
         self.I=self.matR.copy()
         self.I[self.I != 0] = 1
 
@@ -24,7 +25,7 @@ class PMF():
     def predict(self, data):
         res=np.dot(self.U,self.V.T)
         res[data==0]=0
-        rmse=np.sqrt(np.mean(np.square(data-res)))
+        rmse=np.sqrt(np.mean(np.square(data-res))/(1-self.ratio))
         return rmse
 
     def train(self, trainData=None, testData=None):
