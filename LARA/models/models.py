@@ -162,7 +162,7 @@ def train():
                         testFakeItem=torch.from_numpy(np.asarray(testAttribute)).type(torch.LongTensor)
                         fakeuseremb=G(testFakeItem)
                     predictindex=test(testItem,fakeuseremb)
-                    print("the p10,p20,Mp10,Mp20,NDCG10,NDCG20".format(predictindex))
+                    print("the p10,p20,Mp10,Mp20,NDCG10,NDCG20{}".format(predictindex))
 
 def sigmoidCrossEntryLoss(logits,p):
     loss = torch.mean(-p*torch.log(torch.sigmoid(logits)) + (p-1)*torch.log(1-torch.sigmoid(logits)))
